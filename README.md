@@ -15,3 +15,14 @@ base64로 인코딩하기 위한 image,
 ```
 ![image](https://user-images.githubusercontent.com/58906858/213621288-64bc8034-0cf4-4880-a349-697feedfd25d.png)
 
+## 갤러리에서 이미지 가져오기
+
+```
+main.dart에서 stateful 클래스의 HomePage를 생성하고 homepage.dart 파일에 HomePage클래스를 생성합니다.
+HomePage의 ElevatedButton에서 이미지 선택 버튼을 눌렀을 때 작동하는 parsethetext() 메서드를 생성합니다.
+이미지를 갤러리에서 가져오는 기능을 추가합니다.
+
+parsethetext() async {
+    final pickedFile = await ImagePicker().getImage(source: ImageSource.gallery);
+    if (pickedFile == null) return;
+```
