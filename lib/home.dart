@@ -17,6 +17,13 @@ class _HomePageState extends State<HomePage> {
     if (pickedFile == null) return;
     var bytes = File(pickedFile.path.toString()).readAsBytesSync();
     String img64 = base64Encode(bytes);
+
+    var url = 'https://api.ocr.space/parse/image';
+    var payload = {"base64Image": "data:image/jpg;base64,${img64.toString()}","language" :"kor"};
+    var header = {"apikey" :"발급받은 키 번호"};
+
+    var post = await http.post(Uri.parse(url),body: payload,headers: header);
+    var result = jsonDecode(post.body);
   }
   @override
   Widget build(BuildContext context) {
