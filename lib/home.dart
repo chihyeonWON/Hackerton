@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'dart:convert';
+import 'dart:io';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:http/http.dart' as http;
 
 class HomePage extends StatefulWidget {
   @override
@@ -9,7 +13,10 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   parsethetext() async {
-    final imagefile = await ImagePicker().getImage(source:ImageSource.gallery, maxWidth: 670,   maxHeight: 970);
+    final pickedFile = await ImagePicker().getImage(source: ImageSource.gallery);
+    if (pickedFile == null) return;
+    var bytes = File(pickedFile.path.toString()).readAsBytesSync();
+    String img64 = base64Encode(bytes);
   }
   @override
   Widget build(BuildContext context) {
