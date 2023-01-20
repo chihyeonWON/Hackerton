@@ -26,3 +26,14 @@ parsethetext() async {
     final pickedFile = await ImagePicker().getImage(source: ImageSource.gallery);
     if (pickedFile == null) return;
 ```
+
+## 이미지를 base64로 변환하기
+```
+parsethetext()에 이미지를 갤러리에서 선택한 후에 선택한 이미지를 base64로 인코딩해야 합니다.
+왜냐하면 사용하고자 하는 OCR Api가 base64 형식의 이미지만을 취급하기 때문입니다.
+이미지를 선택하자마자 텍스트 인식까지 하는 코드를 구현하였습니다.
+
+var bytes = File(pickedFile.path.toString()).readAsBytesSync(); // 선택한 이미지 텍스트 인식
+    String img64 = base64Encode(bytes); // base64로 인코딩(변환)
+```
+
