@@ -52,7 +52,23 @@ class _HomePageState extends State<HomePage> {
                     onPressed: () => parsethetext(),
                     child: Text('Upload a image',
                         style: GoogleFonts.montserrat(
-                            fontSize: 20, fontWeight: FontWeight.w700))))
+                            fontSize: 20, fontWeight: FontWeight.w700)))),
+            Container(
+              alignment: Alignment.center,
+              child: Column(
+                children: <Widget>[
+                  Text("ParsedText is:",style: GoogleFonts.montserrat(
+                      fontSize:20,
+                      fontWeight:FontWeight.bold
+                  ),),
+                  SizedBox(height:10.0),
+                  Text(parsedtext,style: GoogleFonts.montserrat(
+                      fontSize:25,
+                      fontWeight:FontWeight.bold
+                  ),)
+                ],
+              ),
+            ),
           ],
         ),
       )
