@@ -14,6 +14,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   String parsedtext = ''; // 추출된 텍스트를 저장할 String 변수
   String filepath = '';
+
   parsethetext() async {
     final pickedFile = await ImagePicker().getImage(source: ImageSource.gallery);
     if (pickedFile == null) return;
@@ -33,18 +34,30 @@ class _HomePageState extends State<HomePage> {
   }
   @override
   Widget build(BuildContext context) {
+    final _imageSize = MediaQuery.of(context).size.width/4;
+
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
             Container(
-              width: 500,
-              height: 500,
-              decoration: BoxDecoration(
-                  image: DecorationImage(
-                      image: FileImage(File(filepath)),//File Image를 삽입
-                      fit: BoxFit.cover)),
+              constraints: BoxConstraints(
+                minHeight: _imageSize,
+                minWidth: _imageSize,
+              ),
             ),
+              Container(
+                width: 400,
+                height: 200,
+                decoration: BoxDecoration(
+                  shape: BoxShape.rectangle,
+                  border: Border.all(
+                      width: 2, color: Theme.of(context).colorScheme.primary),
+                  image: DecorationImage(
+                      image: FileImage(File(filepath)),
+                      fit: BoxFit.contain),
+                ),
+              ),
             Container(
               margin: EdgeInsets.only(top: 30.0),
               alignment: Alignment.center,
