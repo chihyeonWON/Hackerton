@@ -45,5 +45,17 @@ free api를 선택하고 발급을 요청하면 입력한 이메일로 Api key�
 ```
 ![image](https://user-images.githubusercontent.com/58906858/213626975-fd9fb331-2c80-49ab-9801-6a2435a8e0d0.png)
 
+## 발급받은 Api키를 가지고 특정 url로 이미지 전송하기
+[이미지 전송해야할 사이트](https://api.ocr.space/parse/image)로 이미지를 전송해야 합니다.
+```
+바디(body) 전송할 데이터(payload)와 헤더(header Api정보), url (데이터를 전송할 경로) 세 가지를 http의 post 방식으로
+전달합니다.
 
+    var url = 'https://api.ocr.space/parse/image';
+    var payload = {"base64Image": "data:image/jpg;base64,${img64.toString()}","language" :"kor"};
+    var header = {"apikey" :"발급받은 키 번호"};
+    
+    var post = await http.post(Uri.parse(url), body: payload, headers: header);
+    var result = jsonDecode(post.body);
+```
 
