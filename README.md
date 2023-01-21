@@ -75,4 +75,5 @@ var result = jsonDecode(post.body); // 추출 결과를 받아서 result에 저�
 Column의 맨 뒷부분에 Container위젯을 넣어줍니다.
 parsedtext값을 Text 위젯을 사용하여 화면에 뿌려줍니다.
 ```
+![image](https://user-images.githubusercontent.com/58906858/213846328-0d0747d2-163c-4a37-9a8a-6d603c11debf.png)
 
