@@ -13,6 +13,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   String parsedtext = ''; // 추출된 텍스트를 저장할 String 변수
+  String filepath = '';
   parsethetext() async {
     final pickedFile = await ImagePicker().getImage(source: ImageSource.gallery);
     if (pickedFile == null) return;
@@ -27,6 +28,7 @@ class _HomePageState extends State<HomePage> {
     var result = jsonDecode(post.body); // 추출 결과를 받아서 result에 저장
     setState(() {
       parsedtext = result['ParsedResults'][0]['ParsedText']; // 추출결과를 다시 parsedtext로 저장
+      filepath =pickedFile!.path;
     });
   }
   @override
@@ -35,6 +37,14 @@ class _HomePageState extends State<HomePage> {
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
+            Container(
+              width: 500,
+              height: 500,
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                      image: FileImage(File(filepath)),//File Image를 삽입
+                      fit: BoxFit.cover)),
+            ),
             Container(
               margin: EdgeInsets.only(top: 30.0),
               alignment: Alignment.center,
