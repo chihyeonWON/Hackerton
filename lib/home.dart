@@ -78,6 +78,9 @@ class _HomePageState extends State<HomePage> {
                         style: GoogleFonts.montserrat(
                             fontSize: 20, fontWeight: FontWeight.w700)))),
             Container(
+              height:30,
+            ),
+            Container(
               alignment: Alignment.center,
               child: Column(
                 children: <Widget>[
