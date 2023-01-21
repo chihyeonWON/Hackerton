@@ -70,17 +70,18 @@ class _HomePageState extends State<HomePage> {
             ),
             SizedBox(height: 15.0),
             Container(
-                width: MediaQuery.of(context).size.width / 2,
+                width: MediaQuery.of(context).size.width / 1,
+                height:MediaQuery.of(context).size.height /15,
                 child: ElevatedButton(
                     onPressed: () => parsethetext(),
-                    child: Text('Upload a image',
+                    child: Text('사진을 선택해주세요',
                         style: GoogleFonts.montserrat(
                             fontSize: 20, fontWeight: FontWeight.w700)))),
             Container(
               alignment: Alignment.center,
               child: Column(
                 children: <Widget>[
-                  Text("ParsedText is:",style: GoogleFonts.montserrat(
+                  Text("추출된 텍스트는",style: GoogleFonts.montserrat(
                       fontSize:20,
                       fontWeight:FontWeight.bold
                   ),),
