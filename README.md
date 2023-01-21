@@ -59,3 +59,14 @@ free api를 선택하고 발급을 요청하면 입력한 이메일로 Api key�
     var result = jsonDecode(post.body);
 ```
 
+## 사이트에서 결과 값 받아오기
+```
+이미지에서 추출한 텍스트 결과 값을 저장할 함수 밖 전역변수 parsedtext를 정의하고
+post.body에 있는 결과 값을 result 에 저장한 후 다시 result의 추출된 결과와 텍스트를 parsedtext에 저장합니다.
+
+var result = jsonDecode(post.body); // 추출 결과를 받아서 result에 저장
+    setState(() {
+      parsedtext = result['ParsedResults'][0]['ParsedText']; // 추출결과를 다시 parsedtext로 저장
+    });
+```
+
