@@ -24,7 +24,10 @@ class _HomePageState extends State<HomePage> {
     var header = {"apikey" :"K86070579388957"};
 
     var post = await http.post(Uri.parse(url),body: payload,headers: header);
-    var result = jsonDecode(post.body);
+    var result = jsonDecode(post.body); // 추출 결과를 받아서 result에 저장
+    setState(() {
+      parsedtext = result['ParsedResults'][0]['ParsedText']; // 추출결과를 다시 parsedtext로 저장
+    });
   }
   @override
   Widget build(BuildContext context) {
