@@ -70,3 +70,9 @@ var result = jsonDecode(post.body); // 추출 결과를 받아서 result에 저�
     });
 ```
 
+## 가져온 텍스트를 화면에 뿌리기
+```
+Column의 맨 뒷부분에 Container위젯을 넣어줍니다.
+parsedtext값을 Text 위젯을 사용하여 화면에 뿌려줍니다.
+```
+
